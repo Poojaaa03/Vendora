@@ -104,9 +104,11 @@ public class SecurityConfig {
                 new CorsConfiguration();
 
         configuration.setAllowedOrigins(
-                List.of("http://localhost:5173")
-        );
-
+    List.of(
+        "http://localhost:5173",
+        "https://https://vendora-frontend-site.onrender.com/"
+    )
+);
         configuration.setAllowedMethods(
                 List.of(
                         "GET",
