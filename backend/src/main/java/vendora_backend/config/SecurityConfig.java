@@ -33,7 +33,11 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable())
 
-                .cors(cors -> cors.configurationSource(corsConfigurationSource()))
+                .cors(cors ->
+                        cors.configurationSource(
+                                corsConfigurationSource()
+                        )
+                )
 
                 .sessionManagement(session ->
                         session.sessionCreationPolicy(
@@ -57,7 +61,9 @@ public class SecurityConfig {
                         ).permitAll()
 
                         // Authentication endpoints
-                        .requestMatchers("/api/auth/**").permitAll()
+                        .requestMatchers(
+                                "/api/auth/**"
+                        ).permitAll()
 
                         // Product permissions
                         .requestMatchers(
@@ -104,11 +110,12 @@ public class SecurityConfig {
                 new CorsConfiguration();
 
         configuration.setAllowedOrigins(
-    List.of(
-        "http://localhost:5173",
-        "https://https://vendora-frontend-site.onrender.com/"
-    )
-);
+                List.of(
+                        "http://localhost:5173",
+                        "https://vendora-frontend-site.onrender.com"
+                )
+        );
+
         configuration.setAllowedMethods(
                 List.of(
                         "GET",
